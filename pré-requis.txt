@@ -1,0 +1,10 @@
+Bibliothèques et stuctures logicielles requises:
+
+	-mediapipe
+	-pygame
+	-opencv-python
+
+
+Matériel requis:
+
+	-une caméra
