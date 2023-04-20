@@ -1,11 +1,8 @@
 Protocole d'utilisation pour Windows et Linux:
 
 	-consulter les pré-requis;
-	-installer le nécessaire avec la commande:
-	 'pip install mediapipe pygame opencv-python'
+	-installer le nécessaire avec la commande: 'pip install mediapipe pygame opencv-python';
 	-lancer le fichier 'main_code.py' situé dans le dossier 'sources';
 	-appuyer sur <Entrée> pour lancer une partie;
-	-si le point à côté de la raquette est bleu, la main est détectée
-	 et la raquette se déplacera;
-	-si le point à coté de la raquette est rouge, la main n'est pas
-	 détectée et il faut vérifier qu'elle soit bien alignée avec la caméra.
+	-si le point à côté de la raquette est bleu, la main est détectée et la raquette se déplacera;
+	-si le point à coté de la raquette est rouge, la main n'est pas détectée et il faut vérifier qu'elle soit bien alignée avec la caméra.
