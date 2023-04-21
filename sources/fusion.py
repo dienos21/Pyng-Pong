@@ -1,10 +1,15 @@
 import hand_estimation_module
 import pong
 import cv2
+import pygame
+
+pygame.init()
+pygame.mixer.init()
 
 WIDTH, HEIGHT = 1920, 1080
 PADDLE_WIDTH, PADDLE_HEIGHT = 20, 100
 BALL_RADIUS = 50
+musique_fond = pygame.mixer.Sound("sons/fond.mp3")
 
 
 def main():
@@ -26,8 +31,10 @@ def main():
     ball = pong.Ball(WIDTH / 2 - BALL_RADIUS / 2, HEIGHT / 2 - BALL_RADIUS / 2, BALL_RADIUS)
 
     jouer = True
+    musique_fond.play()
     while jouer:
         hand_tracker = hand_estimation_module.main(cap, detecteur)
         right_y = hand_tracker[0]
         left_y = hand_tracker[1]
         jouer = pong.main(left_paddle, right_paddle, left_point, right_point, ball, left_y, right_y)
+    musique_fond.stop()

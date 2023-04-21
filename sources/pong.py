@@ -1,5 +1,6 @@
 import pygame
 pygame.init()
+pygame.mixer.init()
 
 # DEBUG_HITBOX = True: permet d'afficher, à l'aide de points verts, la hitbox des paddles et de la balle
 #                      permet de vérifier que l'image utilisée soit bien à la même position
@@ -28,6 +29,9 @@ right_paddle_img = pygame.image.load("images/blue_paddle.png")
 background_img = pygame.image.load("images/terrain_pyng_pong.jpg").convert()
 background_img = pygame.transform.scale(background_img, (WIDTH, HEIGHT))
 ball_img = pygame.image.load("images/balle.png")
+trophee_bleu = pygame.image.load("images/win_bleu.png")
+trophee_rouge = pygame.image.load("images/win_rouge.png")
+pygame.mixer.music.load("sons/point.mp3")
 
 
 class Paddle:
@@ -283,33 +287,36 @@ def main(left_paddle, right_paddle, left_point, right_point, ball, left_y, right
     ball.move()
     handle_collision(ball, left_paddle, right_paddle)
 
-    if ball.x < -64 - 1:
+    if ball.x < -55:
         right_score += 1
         ball.reset()
+        pygame.mixer.music.play(1)
         left_paddle.reset()
         right_paddle.reset()
         ball.impact_counter = 0
         ball.x_vel = -12
+        pygame.time.delay(800)
 
-    elif ball.x > WIDTH + 1:
+    elif ball.x > WIDTH + 5:
         left_score += 1
         ball.reset()
+        pygame.mixer.music.play(1)
         left_paddle.reset()
         right_paddle.reset()
         ball.impact_counter = 0
         ball.x_vel = 12
+        pygame.time.delay(800)
 
     won = False
     if left_score >= WINNING_SCORE:
         won = True
-        win_text = "Les rouges ont gagné !"
+        WIN.blit(trophee_rouge, (681, 270))
+        pygame.time.delay(800)
     elif right_score >= WINNING_SCORE:
         won = True
-        win_text = "Les bleus ont gagné !"
+        WIN.blit(trophee_bleu, (681, 270))
+        pygame.time.delay(800)
 
     if won:
-        text = SCORE_FONT.render(win_text, True, CYAN)
-        WIN.blit(text, (WIDTH // 2 - text.get_width() //
-                        2, HEIGHT // 2 - text.get_height() // 2))
         return False
     return True
