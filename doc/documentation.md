@@ -100,8 +100,10 @@ fonction permettant de faire tourner le jeu
 `left_point` objet de la classe Point, représente le point de la main gauche  
 `right_point` objet de la classe Point, représente le point de la main droite  
 `ball` objet de la classe Ball, représente la balle du jeu  
-`left_y` valeur de la main gauche indiquant jusqu'où la raquette gauche doit se déplacée, n'est pas prise en compte dans le programme si < 0  
-`right_y` valeur de la main droite indiquant jusqu'où la raquette droite doit se déplacée, n'est pas prise en compte dans le programme si < 0  
+`left_y` valeur de la main gauche indiquant jusqu'où la raquette gauche doit se déplacée  
+n'est pas pris en compte dans le programme si < 0  
+`right_y` valeur de la main droite indiquant jusqu'où la raquette droite doit se déplacée  
+n'est pas pris en compte dans le programme si < 0  
 `return` booléen indiquant si la partie s'est terminée ou non  
     
 ---
